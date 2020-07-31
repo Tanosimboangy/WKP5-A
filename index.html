@@ -4,9 +4,51 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>WKP5</title>
+		<style>
+			.new_container {
+				display: flex;
+				flex-direction: column;	
+				background-color: darkgray;
+				place-items: center center;
+				max-width: 400px;
+				border-radius: 5px;
+				margin: auto;
+				margin-bottom: 2rem;
+				padding: 1rem;
+			}
+			img {
+				width: 200px;
+				height: 200px;
+				border-radius: 4px;
+			}
+			.ul_container {
+				display: flex;
+				flex-direction: row;
+				padding: 0;
+			}
+			li {
+				list-style: none;
+				padding-left: 1rem;
+			}
+			.more_info {
+				padding: .5rem 1rem;
+				border: 1px solid black;
+				border-radius: 4px;
+				background-color: rgb(238, 37, 228);
+			}
+			.more_info:hover {
+				font-weight: 700;
+				text-transform: uppercase;
+				border: 1px solid brown;
+				background-color: rgb(238, 218, 37);
+				color: rgb(4, 88, 23);
+			}
+		</style>
 	</head>
 	<body>
-		<div class="container"></div>
+		<div class="container">
+
+		</div>
 		<button class="generate">GENERATE RECIPES</button>
 	</body>
 	<script src="script.js"></script>
