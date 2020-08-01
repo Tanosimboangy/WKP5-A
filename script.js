@@ -1,12 +1,10 @@
-console.log('HELLO');
-
 const recipes = [
 	{
 		title: 'Eggs',
 		picture: 'https://bit.ly/2ZXyiKI',
 		author: 'Loïc',
 		difficulty: 'easy',
-		timing: '15',
+		timing: '15 mn',
 		ingredients: ['eggs', 'salt', 'water'],
 		steps: [
 			'Put a pan on the fire',
@@ -21,7 +19,7 @@ const recipes = [
 		picture: 'https://bit.ly/2ZXyiKI',
 		author: 'Jacquit',
 		difficulty: 'medium',
-		timing: '45',
+		timing: '45 mn',
 		ingredients: ['oil', 'salt', 'water', 'ravitoto'],
 		steps: [
 			'Put a pan on the fire',
@@ -36,7 +34,7 @@ const recipes = [
 		picture: 'https://bit.ly/2ZXyiKI',
 		author: 'Loïc',
 		difficulty: 'easy',
-		timing: '15',
+		timing: '15 mn',
 		ingredients: ['eggs', 'salt', 'water'],
 		steps: [
 			'Put a pan on the fire',
@@ -51,7 +49,7 @@ const recipes = [
 		picture: 'https://bit.ly/2ZXyiKI',
 		author: 'francois',
 		difficulty: 'difficult',
-		timing: '20',
+		timing: '20 mn',
 		ingredients: ['leaves', 'salt', 'water'],
 		steps: [
 			'Put a pan on the fire',
@@ -74,34 +72,51 @@ const renderCard = (event) => {
 				<h2>${recipe.title}</h2>
 				<img src="${recipe.picture}">
 				<ul class="ul_container">
-					<li><p>${recipe.difficulty}</p></li>
-					<li><p>${recipe.timing}</p></li>
+					<li><p>Difficulty: ${recipe.difficulty}</p></li>
+					<li><p>Time: ${recipe.timing}</p></li>
 				</ul>
 				<button class="more_info">More info</button>
 			</div>
 		`;
 		// put it in the DOM
 		newContainer.insertAdjacentHTML('beforebegin', myHTML);
-		// document.body.innerHTML += (myHTML);
 	}); 
 };
-
 const generateButton = document.querySelector('button.generate');
 generateButton.addEventListener('click', renderCard);
 
-const infoButton = document.querySelector('.more_info');
 
-const realRecipe = (event) => {
-	console.log(event)
-	if(e.target.matches("button.more_info")) {
-
-	}	
-}
-infoButton.addEventListener('click', realRecipe);
-
-
-// const parent = e.target.closest(".new_container");
-// const id = Number(parent.dataset.id);
-// const recipe = recipes.find(singleRecipe => singleRecipe.id === id);
-// openModal(recipe);
+// Grab the open modal container from the HTML
+const openModal = document.getElementsByClassName('open_modal');
+// Create a funciton for the new modal
+// Grab the info button
+// Grab those values into those new html elements
+const realRecipe = e => {
+	if (e.target.matches('button.more_info')) {
+		const parent = e.target.closest('div.modal_container');
+		const id = Number("parent.dataset.id");
+		const recipe = recipes.find(recipe => recipe.id === id);
+		recipes.forEach(recipe => {
+			const newModalHTML = `
+				<div class="modal_container" data-id="${recipe.id}">
+					<h1>"Hello! this is my modal"</h1>
+					<h2>${recipe.title}</h2>
+					<p>${recipe.author}</p>
+					<img src="${recipe.picture}">
+					<ul class="ul_container">
+						<li><p>Difficulty: ${recipe.difficulty}</p></li>
+						<li><p>Time: ${recipe.timing}</p></li>
+					</ul>
+					<ul>
+						<li>ingredients: ${recipe.ingredients}</li>
+						<li>steps: ${recipe.steps}</li>
+					</ul>
+				</div>
+			`;
+			// openModal(recipe);
+			openModal.insertAdjacentHTML('beforebegin', newModalHTML);
+		});
+	}
+};
+window.addEventListener('click', realRecipe);
 
