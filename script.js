@@ -132,10 +132,7 @@ window.addEventListener('click', realRecipe);
 outerModal.addEventListener('click', closeModal);
 
 
-
-const innerModal = document.querySelector('.inner-modal');
 const addRecipeButton = document.querySelector('.add');
-const outerModal = document.querySelector('.outer-modal');
 // Create a funtion that contains the form element
 const handleAddListBtn = (e) => {
     const myFormHtml = `
@@ -184,16 +181,6 @@ const handleAddListBtn = (e) => {
     outerModal.classList.add('open');
 }
 addRecipeButton.addEventListener('click', handleAddListBtn);
-const closeModal = () => {
-    outerModal.classList.remove('open');
-}
-// Listen to the outside of the element to close the modal
-outerModal.addEventListener('click', event => {
-    const isOutside = !event.target.closest('.inner-modal')
-    if (isOutside) {
-        closeModal();
-    }
-});
 // listen to the escape key to close the modal
 window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
