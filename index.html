@@ -9,11 +9,14 @@
 				display: flex;
 				flex-direction: column;	
 				align-items: center;
-				background-color: rgba(0, 0, 0, .2);
+				background-color: rgba(255, 242, 207, 0.2);
 				max-width: 360px;
 				margin: auto;
 				margin-bottom: 2rem;
 				padding: 1rem;
+				margin-inline-start: 1rem;
+				border: 16px solid saddlebrown;
+				border-radius: 30px;
 			}
 			.sub_container {
 				display: flex;
@@ -48,28 +51,16 @@
 			}
 			
 			.modal_container {
-				padding: 2rem;
-    			background-color: gray;
+				padding: 1rem;
+    			background-color: rgb(166, 149, 255);
 				max-width: 450px;
 				max-height: 550px;
-				border-radius: 5px;
+				border-radius: 20px;
 				border: 2px solid rgb(0, 0, 0);
 
 			}
 
 			.outer-modal {
-				display: grid;
-				place-items: center center;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100vw;
-				height: 100vh;
-				background-color: hsla(0, 0%, 0%, 0.7);
-				pointer-events: none;
-				opacity: 0;
-			}
-			.new_recipe {
 				display: grid;
 				place-items: center center;
 				position: absolute;
@@ -94,13 +85,6 @@
 				padding: 2rem;
 				border-radius: 5px;
 			}
-			.sub_new_recipe {
-				background-color: rgb(217, 255, 0);
-				max-width: 482px;
-				max-height: 582px;
-				padding: 2rem;
-				border-radius: 5px;
-			}
 			button {
 				padding: 1rem;
 				background-color: lightsalmon;
@@ -117,11 +101,6 @@
 		</div>
 		<div class="outer-modal">
 			<div class="inner_modal">
-
-			</div>
-		</div>
-		<div class="new_recipe">
-			<div class="sub_new_recipe">
 
 			</div>
 		</div>
